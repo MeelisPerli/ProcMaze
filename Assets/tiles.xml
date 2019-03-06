@@ -1,0 +1,15 @@
+<set>
+  <tiles>
+<tile name="FloorBlock" symmetry="X" weight="1.0"/>
+<tile name="WallBlock" symmetry="X" weight="1.0"/>
+	</tiles>
+<neighbors>  <neighbor left="FloorBlock 1" right="FloorBlock 1"/>
+  <neighbor left="FloorBlock 0" right="FloorBlock 0"/>
+  <neighbor left="FloorBlock 1" right="WallBlock 1"/>
+  <neighbor left="FloorBlock 0" right="WallBlock 0"/>
+  <neighbor left="WallBlock 0" right="FloorBlock 0"/>
+  <neighbor left="WallBlock 1" right="WallBlock 1"/>
+  <neighbor left="WallBlock 0" right="WallBlock 0"/>
+  <neighbor left="WallBlock 1" right="FloorBlock 1"/>
+	</neighbors>
+</set>
