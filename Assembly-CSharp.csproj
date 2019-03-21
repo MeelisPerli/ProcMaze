@@ -60,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BlockMover.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\unity-wave-function-collapse\impl\Model.cs" />
     <Compile Include="Assets\unity-wave-function-collapse\impl\OverlappingModel.cs" />
     <Compile Include="Assets\unity-wave-function-collapse\impl\SimpleTiledModel.cs" />
@@ -73,21 +75,22 @@
     <Compile Include="Assets\unity-wave-function-collapse\TilePainter.cs" />
     <Compile Include="Assets\unity-wave-function-collapse\Training.cs" />
     <None Include="Assets\unity-wave-function-collapse\LICENSE.txt" />
+    <None Include="Assets\tiles2.xml" />
     <None Include="Assets\tiles.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/meeli/OneDrive/Documents/DeltaBuildingVisualization/ProcMaze/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/meeli/OneDrive/Documents/ProcMaze/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/meeli/OneDrive/Documents/DeltaBuildingVisualization/ProcMaze/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/meeli/OneDrive/Documents/ProcMaze/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/meeli/OneDrive/Documents/DeltaBuildingVisualization/ProcMaze/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/meeli/OneDrive/Documents/ProcMaze/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/meeli/OneDrive/Documents/DeltaBuildingVisualization/ProcMaze/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/meeli/OneDrive/Documents/ProcMaze/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/meeli/OneDrive/Documents/DeltaBuildingVisualization/ProcMaze/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/meeli/OneDrive/Documents/ProcMaze/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -291,13 +294,13 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/meeli/OneDrive/Documents/DeltaBuildingVisualization/ProcMaze/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/meeli/OneDrive/Documents/ProcMaze/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/meeli/OneDrive/Documents/DeltaBuildingVisualization/ProcMaze/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/meeli/OneDrive/Documents/ProcMaze/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/meeli/OneDrive/Documents/DeltaBuildingVisualization/ProcMaze/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/meeli/OneDrive/Documents/ProcMaze/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

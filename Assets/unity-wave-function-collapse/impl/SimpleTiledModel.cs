@@ -119,7 +119,8 @@ public class SimpleTiledModel : Model
 			else
 			{
 				tiles.Add("0"+tilename);
-				for (int t = 1; t < cardinality; t++) tiles.Add(rotate(tiles[T + t - 1]));
+				for (int t = 1; t < cardinality; t++)
+                    tiles.Add(rotate(tiles[T + t - 1]));
 			}
 
 			for (int t = 0; t < cardinality; t++) tempStationary.Add(xtile.Get("weight", 1.0f));

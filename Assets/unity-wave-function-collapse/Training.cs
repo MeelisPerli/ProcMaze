@@ -56,10 +56,11 @@ class Training : MonoBehaviour{
 	public string AssetPath(UnityEngine.Object o){
 		#if UNITY_EDITOR
 		return AssetDatabase.GetAssetPath(o).Trim().Replace("Assets/Resources/", "").Replace(".prefab", "");
-		#else
-		return "";
-		#endif
-	}
+        #else
+        return "";
+        #endif
+
+    }
 
 	public string NeighborXML(){
 		Dictionary<UnityEngine.Object,int> counts = new Dictionary<UnityEngine.Object,int>();
@@ -99,6 +100,7 @@ class Training : MonoBehaviour{
 	}
 
 	public void Compile() {
+
 		str_tile = new Dictionary<string, byte>();
 		sample = new byte[width, depth]; 
 		int cnt = this.transform.childCount;
@@ -108,13 +110,13 @@ class Training : MonoBehaviour{
 		RS[0] = 0;
 		for (int i = 0; i < cnt; i++){
 			GameObject tile = this.transform.GetChild(i).gameObject;
-			Vector3 tilepos = tile.transform.localPosition;
-			
+            Vector3 tilepos = tile.transform.localPosition;
 			if ((tilepos.x > -0.55f) && (tilepos.x <= width*gridsize-0.55f) &&
 				  (tilepos.y > -0.55f) && (tilepos.y <= depth*gridsize-0.55f)){
 				UnityEngine.Object fab = tile;
-				#if UNITY_EDITOR
-				fab = PrefabUtility.GetPrefabParent(tile);
+                float tileRotZ = tile.transform.localEulerAngles.z;
+                #if UNITY_EDITOR
+                fab = PrefabUtility.GetPrefabParent(tile);
 				if (fab == null){
 					PrefabUtility.ReconnectToLastPrefab(tile);
 					fab = PrefabUtility.GetPrefabParent(tile);
@@ -127,16 +129,18 @@ class Training : MonoBehaviour{
 						fab = tile;}
 				}
 
-				tile.name = fab.name;
+                tile.name = fab.name;
 				#endif
 				int X = (int)(tilepos.x) / gridsize;
 				int Y = (int)(tilepos.y) / gridsize;
-				int R = (int)((360 - tile.transform.localEulerAngles.z)/90);
+                
+				int R = (int)((360 - tileRotZ) /90);
 				if (R == 4) {R = 0;};
 				if (!str_tile.ContainsKey(fab.name+R)){
 					int index = str_tile.Count+1;
 					str_tile.Add(fab.name+R, (byte)index);
 					tiles[index] = fab;
+                    Debug.Log(fab.name);
 					RS[index] = R;
 					sample[X, Y] = str_tile[fab.name+R];
 				} else {

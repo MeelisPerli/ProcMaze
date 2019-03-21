@@ -111,7 +111,12 @@ public class SimpleTiledWFC : MonoBehaviour{
 						GameObject tile = (GameObject)Instantiate(fab, new Vector3() , Quaternion.identity);
 						Vector3 fscale = tile.transform.localScale;
 						tile.transform.parent = group;
-						tile.transform.localPosition = pos;
+                        BlockMover bm = tile.GetComponent<BlockMover>();
+                        if (bm != null)
+                            tile.transform.localPosition = pos + bm.dist;
+                        else 
+						    tile.transform.localPosition = pos;
+
 						tile.transform.localEulerAngles = new Vector3(0, 0, 360-(rot*90));
 						tile.transform.localScale = fscale;
 						rendering[x,y] = tile;

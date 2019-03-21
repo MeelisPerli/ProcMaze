@@ -1,15 +1,63 @@
 <set>
   <tiles>
+<tile name="tunnel Variant" symmetry="X" weight="1.0"/>
+<tile name="tunnelIntersection Variant" symmetry="X" weight="1.0"/>
+<tile name="tunnelCurve Variant" symmetry="X" weight="1.0"/>
+<tile name="Wall" symmetry="X" weight="1.0"/>
+<tile name="DiagonalWall Variant" symmetry="X" weight="1.0"/>
 <tile name="FloorBlock" symmetry="X" weight="1.0"/>
-<tile name="WallBlock" symmetry="X" weight="1.0"/>
 	</tiles>
-<neighbors>  <neighbor left="FloorBlock 1" right="FloorBlock 1"/>
-  <neighbor left="FloorBlock 0" right="FloorBlock 0"/>
-  <neighbor left="FloorBlock 1" right="WallBlock 1"/>
-  <neighbor left="FloorBlock 0" right="WallBlock 0"/>
-  <neighbor left="WallBlock 0" right="FloorBlock 0"/>
-  <neighbor left="WallBlock 1" right="WallBlock 1"/>
-  <neighbor left="WallBlock 0" right="WallBlock 0"/>
-  <neighbor left="WallBlock 1" right="FloorBlock 1"/>
+<neighbors>  <neighbor left="FloorBlock 0" right="FloorBlock 0"/>
+  <neighbor left="FloorBlock 1" right="FloorBlock 1"/>
+  <neighbor left="FloorBlock 1" right="DiagonalWall Variant 0"/>
+  <neighbor left="FloorBlock 1" right="tunnel Variant 0"/>
+  <neighbor left="FloorBlock 1" right="DiagonalWall Variant 3"/>
+  <neighbor left="FloorBlock 0" right="DiagonalWall Variant 3"/>
+  <neighbor left="DiagonalWall Variant 3" right="tunnel Variant 3"/>
+  <neighbor left="DiagonalWall Variant 0" right="Wall 1"/>
+  <neighbor left="tunnel Variant 3" right="DiagonalWall Variant 2"/>
+  <neighbor left="tunnel Variant 0" right="tunnel Variant 0"/>
+  <neighbor left="DiagonalWall Variant 2" right="FloorBlock 0"/>
+  <neighbor left="DiagonalWall Variant 3" right="Wall 0"/>
+  <neighbor left="DiagonalWall Variant 3" right="Wall 0"/>
+  <neighbor left="DiagonalWall Variant 0" right="tunnelCurve Variant 1"/>
+  <neighbor left="Wall 0" right="tunnel Variant 3"/>
+  <neighbor left="Wall 1" right="tunnel Variant 1"/>
+  <neighbor left="tunnel Variant 3" right="Wall 3"/>
+  <neighbor left="tunnel Variant 0" right="tunnelIntersection Variant 1"/>
+  <neighbor left="Wall 3" right="DiagonalWall Variant 2"/>
+  <neighbor left="Wall 0" right="tunnel Variant 1"/>
+  <neighbor left="DiagonalWall Variant 3" right="tunnelCurve Variant 3"/>
+  <neighbor left="FloorBlock 0" right="tunnelCurve Variant 0"/>
+  <neighbor left="tunnelCurve Variant 0" right="tunnel Variant 0"/>
+  <neighbor left="tunnelCurve Variant 1" right="tunnel Variant 0"/>
+  <neighbor left="tunnel Variant 0" right="tunnelIntersection Variant 0"/>
+  <neighbor left="tunnel Variant 1" right="Wall 1"/>
+  <neighbor left="tunnelIntersection Variant 0" right="tunnel Variant 0"/>
+  <neighbor left="tunnelIntersection Variant 1" right="tunnel Variant 0"/>
+  <neighbor left="tunnel Variant 0" right="tunnelCurve Variant 2"/>
+  <neighbor left="tunnelCurve Variant 2" right="FloorBlock 0"/>
+  <neighbor left="tunnelCurve Variant 3" right="Wall 1"/>
+  <neighbor left="FloorBlock 0" right="tunnel Variant 3"/>
+  <neighbor left="tunnel Variant 3" right="Wall 0"/>
+  <neighbor left="tunnel Variant 0" right="tunnelCurve Variant 2"/>
+  <neighbor left="Wall 0" right="Wall 0"/>
+  <neighbor left="Wall 1" right="tunnel Variant 3"/>
+  <neighbor left="Wall 0" right="FloorBlock 0"/>
+  <neighbor left="FloorBlock 0" right="tunnelCurve Variant 1"/>
+  <neighbor left="tunnelCurve Variant 1" right="tunnel Variant 0"/>
+  <neighbor left="tunnelCurve Variant 2" right="DiagonalWall Variant 1"/>
+  <neighbor left="tunnelIntersection Variant 0" right="tunnel Variant 2"/>
+  <neighbor left="tunnel Variant 2" right="tunnel Variant 2"/>
+  <neighbor left="tunnel Variant 3" right="Wall 1"/>
+  <neighbor left="tunnel Variant 2" right="FloorBlock 0"/>
+  <neighbor left="FloorBlock 0" right="DiagonalWall Variant 0"/>
+  <neighbor left="DiagonalWall Variant 0" right="Wall 0"/>
+  <neighbor left="DiagonalWall Variant 1" right="FloorBlock 1"/>
+  <neighbor left="Wall 1" right="DiagonalWall Variant 1"/>
+  <neighbor left="Wall 1" right="Wall 1"/>
+  <neighbor left="DiagonalWall Variant 0" right="tunnel Variant 3"/>
+  <neighbor left="tunnel Variant 0" right="FloorBlock 1"/>
+  <neighbor left="Wall 1" right="FloorBlock 1"/>
 	</neighbors>
 </set>

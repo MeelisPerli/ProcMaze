@@ -46,18 +46,17 @@ public class TilePainter : MonoBehaviour{
 
 	} 
 
-	static GameObject CreatePrefab(UnityEngine.Object fab, Vector3 pos, Quaternion rot) {	
+	static GameObject CreatePrefab(UnityEngine.Object fab, Vector3 pos, Quaternion rot) {
 		GameObject o = PrefabUtility.InstantiatePrefab(fab as GameObject) as GameObject; 
 		if (o == null){
 			Debug.Log(IsAssetAFolder(fab));
 			return o;}
-		o.transform.position = pos;
+        o.transform.position = pos;
 		o.transform.rotation = rot;
 		return o;
 	}
 
-	public void Restore(){
-
+    public void Restore(){
 		Transform palt = transform.Find("palette");
 		if (palt != null){GameObject.DestroyImmediate(palt.gameObject);}
 		GameObject pal = new GameObject("palette");
@@ -81,7 +80,7 @@ public class TilePainter : MonoBehaviour{
 			}
 			else {
 				if (o != null){
-					GameObject g = CreatePrefab(o, new Vector3() , transform.rotation);
+					GameObject g = CreatePrefab(o, new Vector3(), transform.rotation);
 					g.transform.parent = pal.transform;
 					g.transform.localPosition = new Vector3(i*gridsize, 0f, 0f);
 				}
@@ -110,10 +109,11 @@ public class TilePainter : MonoBehaviour{
 		for (int i = 0; i < cnt; i++){
 			GameObject tile = tiles.transform.GetChild(i).gameObject;
 			Vector3 tilepos = tile.transform.localPosition;
+
 			int X = (int)(tilepos.x / gridsize);
 			int Y = (int)(tilepos.y / gridsize);
 			if (ValidCoords(X, Y)){
-			tileobs[X, Y] = tile; 
+			    tileobs[X, Y] = tile; 
 			} else {
 				trash.Add(tile);
 			}
@@ -149,7 +149,7 @@ public class TilePainter : MonoBehaviour{
 		BoxCollider bounds = this.GetComponent<BoxCollider>();
 		bounds.center = new Vector3((width*gridsize)*0.5f-gridsize*0.5f, (height*gridsize)*0.5f-gridsize*0.5f, 0f);
 		bounds.size = new Vector3(width*gridsize, (height*gridsize), 0f);
-	}
+    }
 
 	public Vector3 GridV3(Vector3 pos){
 		Vector3 p = transform.InverseTransformPoint(pos) + new Vector3(gridsize*0.5f,gridsize*0.5f, 0f);
@@ -200,8 +200,12 @@ public class TilePainter : MonoBehaviour{
 					if (color == null){return;}
 					GameObject o = CreatePrefab(color, new Vector3() , color_rotation);
 					o.transform.parent = tiles.transform;
-					o.transform.localPosition = (cursor*gridsize);
-					o.transform.localRotation = color_rotation;
+                    BlockMover bm = o.GetComponent<BlockMover>();
+                    if (bm == null)
+                        o.transform.localPosition = (cursor * gridsize);
+                    else
+                        o.transform.localPosition = (cursor * gridsize) + bm.dist;
+                    o.transform.localRotation = color_rotation;
 					tileobs[(int)cursor.x, (int)cursor.y] = o;
 				}
 			}
@@ -221,7 +225,8 @@ public class TilePainter : MonoBehaviour{
 		tiles = new GameObject("tiles");
 		tiles.transform.parent = gameObject.transform;
 		tiles.transform.localPosition = new Vector3();
-	}
+        Debug.Log("Cleared");
+    }
 
 	public void OnDrawGizmos(){
 		Gizmos.color = Color.white;

@@ -135,6 +135,9 @@ class OverlapWFC : MonoBehaviour{
 								Vector3 fscale = tile.transform.localScale;
 								tile.transform.parent = group;
 								tile.transform.localPosition = pos;
+                                BlockMover bm = tile.GetComponent<BlockMover>();
+                                if (bm != null)
+                                    tile.transform.localPosition += bm.dist;
 								tile.transform.localEulerAngles = new Vector3(0, 0, 360 - (rot * 90));
 								tile.transform.localScale = fscale;
 								rendering[x,y] = tile;
@@ -153,7 +156,7 @@ class OverlapWFC : MonoBehaviour{
 	}
 }
 
- #if UNITY_EDITOR
+#if UNITY_EDITOR
 [CustomEditor (typeof(OverlapWFC))]
 public class WFCGeneratorEditor : Editor {
 	public override void OnInspectorGUI () {
