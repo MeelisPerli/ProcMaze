@@ -7,7 +7,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4122941112686676061}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5696473972816f14da81263480fac643, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -26,7 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687ccdddb10402c4c951eb2338ac47b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dist: {x: 0, y: 0, z: -1.5}
+  dist: {x: 0, y: 0, z: -1.488}
 --- !u!1001 &4122941112686644989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,15 +84,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5c97155f7a514d1408f52572e84915cc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.987657
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5c97155f7a514d1408f52572e84915cc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.987657
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5c97155f7a514d1408f52572e84915cc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1.987657
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c97155f7a514d1408f52572e84915cc, type: 3}

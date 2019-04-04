@@ -26,20 +26,24 @@ public class Player : MonoBehaviour
     }
 
     private void move() {
+
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        Vector3 movementVec = new Vector3();
 
         if (Input.GetKey("w")) {
-            rb.velocity += (transform.forward) * speed;
+            movementVec += (transform.forward) * speed;
         }
         else if (Input.GetKey("s")) {
-            rb.velocity += (-transform.forward) * speed;
+            movementVec += (-transform.forward) * speed;
         }
         if (Input.GetKey("a")) {
-            rb.velocity += (-transform.right) * speed;
+            movementVec += (-transform.right) * speed;
         }
         else if (Input.GetKey("d")) {
-            rb.velocity += (transform.right) * speed;
+            movementVec += (transform.right) * speed;
         }
+        rb.velocity += movementVec;
+
     }
 
     private void jumping() {
@@ -59,7 +63,7 @@ public class Player : MonoBehaviour
             }
             Vector3 delta = newPos - lastMousePos;
             lastMousePos = newPos;
-            rb.angularVelocity = new Vector3(0, delta.x / camSensitivity, 0);
+            transform.rotation = Quaternion.Euler(0, delta.x / camSensitivity, 0) * transform.rotation;
 
             // y and z
             camAngle -= delta.y / (camSensitivity);

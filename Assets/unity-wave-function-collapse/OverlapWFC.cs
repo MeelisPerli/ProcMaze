@@ -96,6 +96,7 @@ class OverlapWFC : MonoBehaviour{
         rendering = new GameObject[width, depth];
 		model = new OverlappingModel(training.sample, N, width, depth, periodicInput, periodicOutput, symmetry, foundation);
         undrawn = true;
+        Run();
     }
 
 	void OnDrawGizmos(){
@@ -106,8 +107,13 @@ class OverlapWFC : MonoBehaviour{
 	}
 
 	public void Run(){
-		if (model == null){return;}
-        if (undrawn == false) { return; }
+		if (model == null){
+            Debug.Log("model was null");
+            return;
+        }
+        if (undrawn == false) {
+            return;
+        }
         if (model.Run(seed, iterations)){
 			Draw();
 		}
@@ -118,8 +124,15 @@ class OverlapWFC : MonoBehaviour{
 	}
 
 	public void Draw(){
-		if (output == null){return;}
-		if (group == null){return;}
+		if (output == null){
+            Debug.Log("output was null");
+            Generate();
+            Draw();
+        }
+		if (group == null){
+            Debug.Log("group was null");
+            return;
+        }
         undrawn = false;
 		try{
 			for (int y = 0; y < depth; y++){

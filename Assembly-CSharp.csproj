@@ -61,7 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BlockMover.cs" />
+    <Compile Include="Assets\Scripts\MapContinuer.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\randomlySpawnItem.cs" />
+    <Compile Include="Assets\Scripts\stuffDestroyer.cs" />
     <Compile Include="Assets\unity-wave-function-collapse\impl\Model.cs" />
     <Compile Include="Assets\unity-wave-function-collapse\impl\OverlappingModel.cs" />
     <Compile Include="Assets\unity-wave-function-collapse\impl\SimpleTiledModel.cs" />

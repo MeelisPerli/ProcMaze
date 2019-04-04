@@ -7,7 +7,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789755601749561163}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5696473972816f14da81263480fac643, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -26,7 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687ccdddb10402c4c951eb2338ac47b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dist: {x: 0, y: 0, z: -1.5}
+  dist: {x: 0, y: 0, z: -1.21}
 --- !u!1001 &1789755601749658091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,15 +84,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 42b65140d3b6574409ed25fac772a707, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 2.040004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 42b65140d3b6574409ed25fac772a707, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 2.040004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 42b65140d3b6574409ed25fac772a707, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 2.040004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42b65140d3b6574409ed25fac772a707, type: 3}
