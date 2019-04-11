@@ -97,7 +97,8 @@ public class SimpleTiledWFC : MonoBehaviour{
 					int rot = 0;
 					GameObject fab = null;
 					if (v != "?"){
-						rot = int.Parse(v.Substring(0,1));
+						rot = int.Parse(v.Substring(0,1)); // siin juba rotation metsas
+
 						v = v.Substring(1);
 						if (!obmap.ContainsKey(v)){
 							fab = (GameObject)Resources.Load(v, typeof(GameObject));

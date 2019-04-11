@@ -6,6 +6,9 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: Material
+    2100002: Material__Wall_png
+    2100004: Material__Cave_png
+    2100006: Material__grass_png
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube

@@ -140,7 +140,6 @@ class Training : MonoBehaviour{
 					int index = str_tile.Count+1;
 					str_tile.Add(fab.name+R, (byte)index);
 					tiles[index] = fab;
-                    Debug.Log(fab.name);
 					RS[index] = R;
 					sample[X, Y] = str_tile[fab.name+R];
 				} else {

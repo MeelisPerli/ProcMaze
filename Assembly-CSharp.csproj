@@ -79,7 +79,6 @@
     <Compile Include="Assets\unity-wave-function-collapse\Training.cs" />
     <None Include="Assets\unity-wave-function-collapse\LICENSE.txt" />
     <None Include="Assets\tiles2.xml" />
-    <None Include="Assets\tiles.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/meeli/OneDrive/Documents/ProcMaze/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

@@ -1,21 +1,21 @@
 <set>
   <tiles>
 <tile name="FloorBlock" symmetry="X" weight="1.0"/>
-<tile name="DiagonalWall Variant" symmetry="X" weight="1.0"/>
+<tile name="DiagonalWallX" symmetry="X" weight="1.0"/>
 	</tiles>
 <neighbors>  <neighbor left="FloorBlock 0" right="FloorBlock 0"/>
   <neighbor left="FloorBlock 1" right="FloorBlock 1"/>
-  <neighbor left="FloorBlock 1" right="DiagonalWall Variant 0"/>
-  <neighbor left="FloorBlock 1" right="DiagonalWall Variant 3"/>
-  <neighbor left="FloorBlock 0" right="DiagonalWall Variant 3"/>
-  <neighbor left="DiagonalWall Variant 3" right="DiagonalWall Variant 2"/>
-  <neighbor left="DiagonalWall Variant 0" right="DiagonalWall Variant 1"/>
-  <neighbor left="DiagonalWall Variant 2" right="FloorBlock 0"/>
-  <neighbor left="DiagonalWall Variant 3" right="DiagonalWall Variant 2"/>
-  <neighbor left="FloorBlock 0" right="DiagonalWall Variant 0"/>
-  <neighbor left="DiagonalWall Variant 0" right="DiagonalWall Variant 1"/>
-  <neighbor left="DiagonalWall Variant 1" right="FloorBlock 1"/>
-  <neighbor left="DiagonalWall Variant 1" right="FloorBlock 0"/>
-  <neighbor left="DiagonalWall Variant 2" right="FloorBlock 1"/>
+  <neighbor left="FloorBlock 1" right="DiagonalWallX 0"/>
+  <neighbor left="FloorBlock 1" right="DiagonalWallX 3"/>
+  <neighbor left="FloorBlock 0" right="DiagonalWallX 3"/>
+  <neighbor left="DiagonalWallX 3" right="DiagonalWallX 2"/>
+  <neighbor left="DiagonalWallX 0" right="DiagonalWallX 1"/>
+  <neighbor left="DiagonalWallX 2" right="FloorBlock 0"/>
+  <neighbor left="DiagonalWallX 3" right="DiagonalWallX 2"/>
+  <neighbor left="FloorBlock 0" right="DiagonalWallX 0"/>
+  <neighbor left="DiagonalWallX 0" right="DiagonalWallX 1"/>
+  <neighbor left="DiagonalWallX 1" right="FloorBlock 1"/>
+  <neighbor left="DiagonalWallX 1" right="FloorBlock 0"/>
+  <neighbor left="DiagonalWallX 2" right="FloorBlock 1"/>
 	</neighbors>
 </set>

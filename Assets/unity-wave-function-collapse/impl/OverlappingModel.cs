@@ -8,18 +8,19 @@ The software is provided "as is", without warranty of any kind, express or impli
 
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 class OverlappingModel : Model
 {
 
-	int N;
+    int N;
 
 	public byte[][] patterns;
 	int ground;
 	public List<byte> colors;
 
-	public OverlappingModel(byte[,] sample, int N, int width, int height, bool periodicInput, bool periodicOutput, int symmetry, int ground)
-        :base(width, height)
+	public OverlappingModel(byte[,] sample, int N, int width, int height, bool periodicInput, bool periodicOutput, int symmetry, int ground, int xloc, int zloc)
+        :base(width, height, xloc, zloc)
     {
 		this.N = N;
 		periodic = periodicOutput;
@@ -124,9 +125,7 @@ class OverlappingModel : Model
 			base.weights[counter] = weights[w];
 			counter++;
 		}
-
         
-
         Func<byte[], byte[], int, int, bool> agrees = (p1, p2, dx, dy) =>
 		{
 			int xmin = dx < 0 ? 0 : dx, xmax = dx < 0 ? dx + N : N, ymin = dy < 0 ? 0 : dy, ymax = dy < 0 ? dy + N : N;
@@ -152,7 +151,6 @@ class OverlappingModel : Model
 	{
 		return !periodic && (x + N > FMX || y + N > FMY || x < 0 || y < 0);
 	}
-
 
 
 	public byte Sample(int x, int y){

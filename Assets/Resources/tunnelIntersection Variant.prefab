@@ -38,6 +38,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: tunnelIntersection Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: f43d789ece2e5924797fb060f0b1a348, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: e340a7797c7d70c4ba70bce7c1e0bf10, type: 2}
+    - target: {fileID: 2300000, guid: f43d789ece2e5924797fb060f0b1a348, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9068bcd65aca9c64bbea35ece1dac46b, type: 2}
     - target: {fileID: 400000, guid: f43d789ece2e5924797fb060f0b1a348, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

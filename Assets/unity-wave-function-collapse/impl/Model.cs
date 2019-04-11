@@ -8,10 +8,13 @@ The software is provided "as is", without warranty of any kind, express or impli
 
 using System;
 using Eppy;
+using UnityEngine;
 
 public abstract class Model
 {
-	protected bool[][] wave;
+    public int xloc;
+    public int zloc;
+    protected bool[][] wave;
 
 	protected int[][][] propagator;
 	int[][][] compatible;
@@ -33,7 +36,7 @@ public abstract class Model
 	double sumOfWeights, sumOfWeightLogWeights, startingEntropy;
 	double[] sumsOfWeights, sumsOfWeightLogWeights, entropies;
 
-	protected Model(int width, int height)
+	protected Model(int width, int height, int xloc, int zloc)
 	{
 		FMX = width;
 		FMY = height;
@@ -42,6 +45,7 @@ public abstract class Model
 	void Init()
 	{
 		wave = new bool[FMX * FMY][];
+
 		compatible = new int[wave.Length][][];
 		for (int i = 0; i < wave.Length; i++)
 		{
@@ -50,7 +54,8 @@ public abstract class Model
 			for (int t = 0; t < T; t++) compatible[i][t] = new int[4];
 		}
 
-		weightLogWeights = new double[T];
+        
+        weightLogWeights = new double[T];
 		sumOfWeights = 0;
 		sumOfWeightLogWeights = 0;
 
@@ -70,9 +75,9 @@ public abstract class Model
 		
 		stack = new System.Tuple<int, int>[wave.Length * T];
 		stacksize = 0;
-	}
 
-	
+        
+    }
 
 	bool? Observe()
 	{
@@ -168,7 +173,35 @@ public abstract class Model
 			random = new System.Random(seed);
 		}
 
-		for (int l = 0; l < limit || limit == 0; l++)
+        /*
+        if (MapContinuer.instance != null) {
+            for (int r = 0; r < wave.Length; r++) {
+                int x = r % FMX;
+                int z = r / FMX;
+                if (x == 0) {
+                    GameObject o = MapContinuer.instance.getChunkAt(xloc - 1, zloc);
+                    if (o != null) {
+                        OverlapWFC other = o.GetComponent<OverlapWFC>();
+                        if (other.model != null) {
+                            //Debug.Log("changed");
+                            wave[r] = other.model.wave[FMX - 1 + z * FMX];
+                        }
+                    }
+                }
+                if (x == FMX - 1) {
+                    GameObject o = MapContinuer.instance.getChunkAt(xloc + 1, zloc);
+                    if (o != null) {
+                        OverlapWFC other = o.GetComponent<OverlapWFC>();
+                        if (other.model != null) {
+                            //Debug.Log("changed 2");
+                            wave[r] = other.model.wave[z * FMX];
+                        }
+                    }
+                }
+            }
+        }
+        */
+        for (int l = 0; l < limit || limit == 0; l++)
 		{
 			bool? result = Observe();
 			if (result != null) return (bool)result;
@@ -177,6 +210,7 @@ public abstract class Model
 
 		return true;
 	}
+
 
 	protected void Ban(int i, int t)
 	{

@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class MapContinuer : MonoBehaviour
 {
+    public static MapContinuer instance;
 
     public GameObject mapChunkPrefab;
     public int chunkSize = 76;
     public int renderChunksR = 1;
 
     // x, z -> Chunk
-    Dictionary<int, Dictionary<int, GameObject>> grid;
+    public Dictionary<int, Dictionary<int, GameObject>> grid;
 
     private Player player;
 
@@ -19,6 +20,7 @@ public class MapContinuer : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         grid = new Dictionary<int, Dictionary<int, GameObject>>();
         generateAt(0, 0);
+        instance = this;
     }
 
 
@@ -54,10 +56,12 @@ public class MapContinuer : MonoBehaviour
     }
 
     private void generateAt(int x, int z) {
-        GameObject chunk = Instantiate(mapChunkPrefab);
+        OverlapWFC chunk = Instantiate(mapChunkPrefab).GetComponent<OverlapWFC>();
         chunk.transform.parent = transform;
         chunk.transform.position = new Vector3(x*chunkSize, 0, z*chunkSize);
-        if (AddToPos(x, z, chunk))
+        chunk.xloc = x;
+        chunk.zloc = z;
+        if (AddToPos(x, z, chunk.gameObject))
             return;
         Destroy(chunk);
     }
@@ -68,6 +72,12 @@ public class MapContinuer : MonoBehaviour
                 return false;
         }
         return true;
+    }
+
+    public GameObject getChunkAt(int x, int z) {
+        if (isPosFree(x,z))
+            return null;
+        return grid[x][z];
     }
 
     private bool AddToPos(int x, int z, GameObject chunk) {

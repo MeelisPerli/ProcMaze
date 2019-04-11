@@ -10,13 +10,14 @@ using System;
 using System.Xml;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class SimpleTiledModel : Model
 {
 	public List<string> tiles;
 
 	public SimpleTiledModel(string name, string subsetName, int width, int height, bool periodic)
-        :base(width,height)
+        :base(width,height, 0, 0)
     {
 		this.periodic = periodic;
 
@@ -119,8 +120,10 @@ public class SimpleTiledModel : Model
 			else
 			{
 				tiles.Add("0"+tilename);
-				for (int t = 1; t < cardinality; t++)
+
+                for (int t = 1; t < cardinality; t++) {
                     tiles.Add(rotate(tiles[T + t - 1]));
+                }
 			}
 
 			for (int t = 0; t < cardinality; t++) tempStationary.Add(xtile.Get("weight", 1.0f));
@@ -192,7 +195,7 @@ public class SimpleTiledModel : Model
 		string res = "?";
 		for (int t = 0; t < T; t++) if (wave[x + y * FMX][t]){
 			if (found) {return "?";}
-			found = true;
+			found = true; // tundub, et tiles ei sisalda ka pöördeid
 			res = tiles[t];
 		}
 		return res;

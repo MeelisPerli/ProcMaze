@@ -36,7 +36,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: f0ad49e6034181e41a658cf43042b7d2, type: 3}
       propertyPath: m_Name
-      value: DiagonalWall Variant
+      value: DiagonalWallX
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f0ad49e6034181e41a658cf43042b7d2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -97,11 +97,15 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: f0ad49e6034181e41a658cf43042b7d2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1532bff5612c60f49a271385a01e3fc0, type: 3}
+      objectReference: {fileID: 2100000, guid: 9068bcd65aca9c64bbea35ece1dac46b, type: 2}
     - target: {fileID: 2300000, guid: f0ad49e6034181e41a658cf43042b7d2, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: f351f98e53afa5b4e83b41a7abe9f119, type: 2}
+    - target: {fileID: 2300000, guid: f0ad49e6034181e41a658cf43042b7d2, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9068bcd65aca9c64bbea35ece1dac46b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ad49e6034181e41a658cf43042b7d2, type: 3}
 --- !u!1 &3759866580906192859 stripped

@@ -12,8 +12,10 @@ class OverlapWFC : MonoBehaviour{
 	public int width = 20;
 	public int depth = 20;
 	public int seed = 0;
-	//[HideInInspector]
-	public int N = 2;
+    //[HideInInspector]
+    public int xloc;
+    public int zloc;
+    public int N = 2;
 	public bool periodicInput = false;
 	public bool periodicOutput = false;
 	public int symmetry = 1;
@@ -94,7 +96,7 @@ class OverlapWFC : MonoBehaviour{
 		group.rotation = output.transform.rotation;
         group.localScale = new Vector3(1f, 1f, 1f);
         rendering = new GameObject[width, depth];
-		model = new OverlappingModel(training.sample, N, width, depth, periodicInput, periodicOutput, symmetry, foundation);
+		model = new OverlappingModel(training.sample, N, width, depth, periodicInput, periodicOutput, symmetry, foundation, xloc, zloc);
         undrawn = true;
         Run();
     }
@@ -117,11 +119,23 @@ class OverlapWFC : MonoBehaviour{
         if (model.Run(seed, iterations)){
 			Draw();
 		}
+        else {
+            Generate();
+        }
 	}
 
 	public GameObject GetTile(int x, int y){
 		return rendering[x,y];
 	}
+
+    public bool isModelGood() {
+        int count = 0;
+        for (int i = 0; i < width; i++) {
+            if (model.Sample(i, i) == 0) count++;
+        }
+        return count < width / 2;
+        
+    }
 
 	public void Draw(){
 		if (output == null){
@@ -133,6 +147,7 @@ class OverlapWFC : MonoBehaviour{
             Debug.Log("group was null");
             return;
         }
+
         undrawn = false;
 		try{
 			for (int y = 0; y < depth; y++){
