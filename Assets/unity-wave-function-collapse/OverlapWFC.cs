@@ -101,7 +101,8 @@ class OverlapWFC : MonoBehaviour{
         Run();
     }
 
-	void OnDrawGizmos(){
+
+    void OnDrawGizmos(){
 		Gizmos.color = Color.cyan;
 		Gizmos.matrix = transform.localToWorldMatrix;
 		Gizmos.DrawWireCube(new Vector3(width*gridsize/2f-gridsize*0.5f, depth*gridsize/2f-gridsize*0.5f, 0f),
@@ -182,6 +183,86 @@ class OverlapWFC : MonoBehaviour{
 	  		return;
 	  	}
 	}
+
+    internal GameObject findGoodTileForSpawning(int minSize) {
+        int padding = 5;
+        for (int i = padding; i < width- padding; i++) {
+            for (int j = padding; j < depth- padding; j++) {
+                if (isAreaBigEnough(minSize, i, j)) {
+                    GameObject tile = rendering[i,j];
+                    Debug.Log(tile.transform.position);
+                    return tile;
+                }
+            }
+        }
+        return null;
+    }
+
+    public bool isAreaBigEnough(int minSize, int x, int y) {
+        bool[][] grid = new bool[width][];
+        // grid initialization.
+        for (int i = 0; i < width; i++) {
+            bool[] row = new bool[depth];
+            for (int j = 0; j < depth; j++) {
+                row[j] = isTileWalkable(i, j);
+            }
+            grid[i] = row;
+        }
+
+        bool target = true;
+        bool replacement = false;
+        // flood-fill (forest fire implementation)
+        if (!grid[x][y])
+            return false;
+        grid[x][y] = false;
+        int areaSize = 1;
+        Queue<Vector2> Q = new Queue<Vector2>();
+        Q.Enqueue(new Vector2(x, y));
+        while (Q.Count > 0) {
+            Vector2 n = Q.Dequeue();
+            int nX = (int)n.x;
+            int nY = (int)n.y;
+            if (nX + 1 < width && grid[nX + 1][nY]) {
+                areaSize++;
+                grid[nX + 1][nY] = false;
+                Q.Enqueue(new Vector2(nX + 1, nY));
+            }
+            if (nX - 1 >= 0 && grid[nX - 1][nY]) {
+                areaSize++;
+                grid[nX - 1][nY] = false;
+                Q.Enqueue(new Vector2(nX - 1, nY));
+            }
+            if (nY + 1 < width && grid[nX][nY + 1]) {
+                areaSize++;
+                grid[nX][nY + 1] = false;
+                Q.Enqueue(new Vector2(nX, nY + 1));
+            }
+            if (nY - 1 >= 0 && grid[nX][nY - 1]) {
+                areaSize++;
+                grid[nX][nY - 1] = false;
+                Q.Enqueue(new Vector2(nX, nY - 1));
+            }
+        }
+        return minSize < areaSize;
+    }
+
+    private GameObject getTile(int x, int y) {
+        int v = (int)model.Sample(x, y);
+        if (v == 99 || v >= training.tiles.Length)
+            return null;
+
+        GameObject fab = training.tiles[v] as GameObject;
+        return fab;
+    }
+
+    public bool isTileWalkable(int x, int y) {
+        GameObject tile = getTile(x, y);
+        if (tile == null)
+            return false;
+
+        string name = tile.name;
+        return name == "GrassBlock" || name == "Road" || name == "RoadCurve" || name == "RoadIntersection" || name == "BridgeStart Variant" || name == "bridgeMid Variant";
+    }
 }
 
 #if UNITY_EDITOR

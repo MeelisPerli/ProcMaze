@@ -9,6 +9,8 @@ ModelImporter:
     2100002: Material__grass_png
     2100004: Material__grass
     2100006: Material__stonewall_png
+    2100008: Material__RoadMiddle_png
+    2100010: Material__RoadToGrass_png
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
