@@ -27,6 +27,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dist: {x: 0, y: 0, z: -2}
+  scaleBlock: 0
+  scale: {x: 0, y: 0, z: 0}
 --- !u!1001 &444719833172366564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37,6 +39,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f625524fa143228479c5fda72d9421ce, type: 3}
       propertyPath: m_Name
       value: BridgeStart Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f625524fa143228479c5fda72d9421ce, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f625524fa143228479c5fda72d9421ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -114,6 +120,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[4]
       value: 
       objectReference: {fileID: 2100000, guid: 3081122afcad7c34a8ca44efff6f99a6, type: 2}
+    - target: {fileID: 2300000, guid: f625524fa143228479c5fda72d9421ce, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: f625524fa143228479c5fda72d9421ce, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: f625524fa143228479c5fda72d9421ce, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: f625524fa143228479c5fda72d9421ce, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f625524fa143228479c5fda72d9421ce, type: 3}
 --- !u!1 &444719833172333124 stripped

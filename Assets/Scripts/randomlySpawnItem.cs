@@ -11,9 +11,10 @@ public class randomlySpawnItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Random.Range(0,1000)/1000f <= chanceToSpawn) {
+        if (Random.Range(0,10000)/10000f <= chanceToSpawn) {
             GameObject o = Instantiate(objToSpawn);
-            o.transform.position += offSet + transform.position;
+            o.transform.position = transform.position + offSet;
+            o.transform.parent = transform;
         }
     }
 

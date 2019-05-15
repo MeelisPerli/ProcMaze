@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private Vector3 lastMousePos;
     public float camAngle;
     public float camSensitivity;
+    public GameObject waterTile;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
         move();
         cameraMovements();
         jumping();
+        if (transform.position.y < -3)
+            UIController.instance.gameOver();
     }
 
     private void move() {
@@ -43,6 +46,7 @@ public class Player : MonoBehaviour
             movementVec += (transform.right) * speed;
         }
         rb.velocity += movementVec;
+        waterTile.transform.position = new Vector3(transform.position.x, -1.5f, transform.position.z);
 
     }
 

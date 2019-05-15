@@ -9,7 +9,6 @@ public class MapContinuer : MonoBehaviour
 
     public GameObject mapChunkPrefab;
     public int chunkSize = 76;
-    public int renderChunksR = 1;
 
     // x, z -> Chunk
     public Dictionary<int, Dictionary<int, GameObject>> grid;
@@ -25,6 +24,8 @@ public class MapContinuer : MonoBehaviour
         OverlapWFC chunk = getChunkAt(0, 0).GetComponent<OverlapWFC>();
         StartCoroutine(spawnPlayer(chunk));
         instance = this;
+
+        GameObject o = getChunkAt(0, 0);
     }
 
 
@@ -34,24 +35,22 @@ public class MapContinuer : MonoBehaviour
         int pX = (int)Mathf.Floor(pPos.x / chunkSize);
         int pZ = (int)Mathf.Ceil(pPos.z / chunkSize);
         //resetGridBooleans();
-        gridBooleans[pX][pZ] = true; // player's position must always be active
-        for (int i = 0; i < renderChunksR; i++) {
-            checkChunkAt(pX + i, pZ);
-            checkChunkAt(pX - i, pZ);
-            checkChunkAt(pX, pZ + i);
-            checkChunkAt(pX, pZ - i);
-            for (int j = 1; j <= i; j++) {
-                checkChunkAt(pX + i, pZ + j);
-                checkChunkAt(pX - i, pZ + j);
-                checkChunkAt(pX + j, pZ + i);
-                checkChunkAt(pX + j, pZ - i);
+        // player's position must always be active
+        int i = 1;
+        checkChunkAt(pX, pZ);
+        
+        // horisontal and vertical
+        checkChunkAt(pX + i, pZ);
+        checkChunkAt(pX - i, pZ);
+        checkChunkAt(pX, pZ + i);
+        checkChunkAt(pX, pZ - i);
+        // diagonals
+        checkChunkAt(pX - 1, pZ+i);
+        checkChunkAt(pX + 1, pZ+i);
+        checkChunkAt(pX+i, pZ - i);
+        checkChunkAt(pX - i, pZ - i);
+        
 
-                checkChunkAt(pX + i, pZ - j);
-                checkChunkAt(pX - i, pZ - j);
-                checkChunkAt(pX - j, pZ + i);
-                checkChunkAt(pX - j, pZ - i);
-            }
-        }
         renderActiveChunks();
     }
 
@@ -95,6 +94,7 @@ public class MapContinuer : MonoBehaviour
         chunk.transform.position = new Vector3(x*chunkSize, 0, z*chunkSize);
         chunk.xloc = x;
         chunk.zloc = z;
+
         if (AddToPos(x, z, chunk.gameObject))
             return;
         Destroy(chunk);
