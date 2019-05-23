@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,16 +12,20 @@ public class EnemyAI : MonoBehaviour
     private float currentReloadTime;
     private bool focusPlayer;
     private LineRenderer lr;
+    public AudioClipGroup fireSound;
+    public AudioClipGroup deathSound;
     public Projectile projectile;
     private Player p;
+    public bool dead;
 
 
     void Start() {
         p =  GameObject.Find("Player").GetComponent<Player>();
-        if (Vector3.Distance(transform.position, p.transform.position) < 30f) {
+        if (Vector3.Distance(transform.position, new Vector3(p.transform.position.x, 0, p.transform.position.z)) < 60f) {
             Destroy(gameObject);
             return;
         }
+        turnSpeed += Random.Range(0, 20);
         turningDir = Random.Range(0, 100) < 50;
         currentReloadTime = 0;
         lr = GetComponent<LineRenderer>();
@@ -29,14 +34,24 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.other.tag == "Player") {
-            UIController.instance.gameOver();
+        if (!dead) {
+            gameObject.layer = 11;
+            dead = true;
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.constraints = RigidbodyConstraints.None;
+            UIController.instance.increaseScore();
+            lr.enabled = false;
+            deathSound.play();
         }
     }
 
 
     void Update()
     {
+        if (dead)
+            return;
+
+
         if (currentReloadTime >= 0)
             currentReloadTime -= Time.deltaTime;
 
@@ -73,9 +88,10 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void shoot() {
+        fireSound.play();
         currentReloadTime = reloadTime;
         Projectile p = Instantiate(projectile);
-        p.transform.rotation = transform.rotation;
+        p.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, Random.Range(-10, 10), 0));
         p.transform.position = transform.position + transform.forward;
     }
 }

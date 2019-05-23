@@ -19,10 +19,19 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == "Player") {
+            UIController.instance.gameOver();
+        }
+        Destroy(gameObject);
+    }
+
+    /*
     private void OnCollisionEnter(Collision collision) {
         if (collision.rigidbody.tag == "Player") {
             UIController.instance.gameOver();
         }
         Destroy(gameObject);
     }
+    */
 }

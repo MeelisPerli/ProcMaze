@@ -8,7 +8,7 @@ public class MapContinuer : MonoBehaviour
     public static MapContinuer instance;
 
     public GameObject mapChunkPrefab;
-    public int chunkSize = 76;
+    public int chunkSize = 150;
 
     // x, z -> Chunk
     public Dictionary<int, Dictionary<int, GameObject>> grid;
@@ -26,6 +26,7 @@ public class MapContinuer : MonoBehaviour
         instance = this;
 
         GameObject o = getChunkAt(0, 0);
+
     }
 
 
@@ -50,6 +51,7 @@ public class MapContinuer : MonoBehaviour
         checkChunkAt(pX+i, pZ - i);
         checkChunkAt(pX - i, pZ - i);
         
+        
 
         renderActiveChunks();
     }
@@ -63,6 +65,15 @@ public class MapContinuer : MonoBehaviour
         player.transform.position = tile.transform.position + new Vector3(0, 4, 0);
         Debug.Log(tile.transform.position);
         Debug.DrawLine(tile.transform.position, tile.transform.position + new Vector3(0, 10, 0), Color.red, 1000);
+    }
+
+
+    private bool generateChunkAtIfFree(int x, int z) {
+        if (isPosFree(x, z)) {
+            generateAt(x, z);
+            return true;
+        }
+        return false;
     }
 
     private void renderActiveChunks() {
@@ -82,9 +93,7 @@ public class MapContinuer : MonoBehaviour
     }
 
     private void checkChunkAt(int x, int z) {
-        if (isPosFree(x, z)) {
-            generateAt(x, z);
-        }
+        generateChunkAtIfFree(x, z);
         gridBooleans[x][z] = true;
     }
 

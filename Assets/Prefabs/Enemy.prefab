@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 1653556608894579994}
   - component: {fileID: 4401463422947819460}
   - component: {fileID: 7392684452067115834}
-  m_Layer: 0
+  - component: {fileID: 8848568460965573280}
+  m_Layer: 9
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,8 +127,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 20
   reloadTime: 1
+  fireSound: {fileID: 11400000, guid: c02fe579bf10aa0458c268014b224e24, type: 2}
+  deathSound: {fileID: 11400000, guid: f12fba1906256e44fb272d8a476e510a, type: 2}
   projectile: {fileID: 4085194826671764919, guid: 7dfbc23c6829aa64d8f4c694a212922b,
     type: 3}
+  dead: 0
 --- !u!120 &7392684452067115834
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -223,6 +227,18 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &8848568460965573280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653556608894579995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d56885336c294b488cee9324e468b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7498112738922959860
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +251,7 @@ GameObject:
   - component: {fileID: 6403237434192772185}
   - component: {fileID: 7777299137843348073}
   - component: {fileID: 1804845008486499957}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

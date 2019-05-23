@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4983771684634613974}
   - component: {fileID: 4983771684634613972}
   - component: {fileID: 4983771684634613975}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4983771684900525284}
   - component: {fileID: 4983771684900525287}
   - component: {fileID: 4983771684900525286}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -190,9 +190,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpStr: 10
+  jumpStr: 1000
   camAngle: 0
-  camSensitivity: 2
+  camSensitivity: 4
+  waterTile: {fileID: 0}
+  joystickNumber: 0
 --- !u!54 &4983771684900525286
 Rigidbody:
   m_ObjectHideFlags: 0

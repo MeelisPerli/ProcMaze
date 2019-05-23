@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500897a595a462445b31464b2487d206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceToSpawn: 0.01
+  chanceToSpawn: 0.004
   objToSpawn: {fileID: 3355009745616015125, guid: a92cecf0e89e08b4990ea6ae8bbd8841,
     type: 3}
   offSet: {x: 0, y: 0.5, z: 0}

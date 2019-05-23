@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     private int score;
 
     public GameObject endScreen;
+    public GameObject scoreBackground;
     public Text endScoreField;
 
     // Start is called before the first frame update
@@ -36,8 +37,14 @@ public class UIController : MonoBehaviour
         setScore(score);
     }
 
+    public void increaseScore(int i) {
+        score+=i;
+        setScore(score);
+    }
+
     public void gameOver() {
         endScreen.SetActive(true);
+        scoreBackground.SetActive(false);
         endScoreField.text = "Score: " + score;
         Invoke("restart", 2);
     }

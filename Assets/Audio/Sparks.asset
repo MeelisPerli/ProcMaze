@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4bbe416c77857b4bb04dd410c905623, type: 3}
+  m_Name: Sparks
+  m_EditorClassIdentifier: 
+  volumeMin: 1.078
+  volumeMax: 0.887
+  pitchMin: 0.843
+  pitchMax: 1.183
+  cooldown: 1
+  clips:
+  - {fileID: 8300000, guid: b3390ce2b6648bb41a1c68e1db282d46, type: 3}

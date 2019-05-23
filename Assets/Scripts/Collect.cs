@@ -6,7 +6,7 @@ public class Collect : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>() != null) {
-            UIController.instance.increaseScore();
+            UIController.instance.increaseScore(5);
             Destroy(gameObject);
         }
     }
