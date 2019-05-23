@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 20
-  reloadTime: 1
+  reloadTime: 0.5
   fireSound: {fileID: 11400000, guid: c02fe579bf10aa0458c268014b224e24, type: 2}
   deathSound: {fileID: 11400000, guid: f12fba1906256e44fb272d8a476e510a, type: 2}
   projectile: {fileID: 4085194826671764919, guid: 7dfbc23c6829aa64d8f4c694a212922b,

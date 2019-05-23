@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
         p =  GameObject.Find("Player").GetComponent<Player>();
         if (Vector3.Distance(transform.position, new Vector3(p.transform.position.x, 0, p.transform.position.z)) < 60f) {
             Destroy(gameObject);
+            Debug.Log("player is near");
             return;
         }
         turnSpeed += Random.Range(0, 20);
@@ -56,7 +57,7 @@ public class EnemyAI : MonoBehaviour
             currentReloadTime -= Time.deltaTime;
 
         if (focusPlayer) {
-            if (Vector3.Distance(p.transform.position, transform.position) > 30f)
+            if (Vector3.Distance(p.transform.position, transform.position) > 50f)
                 focusPlayer = false;
             transform.LookAt(p.transform.position);
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
